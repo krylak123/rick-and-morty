@@ -1,0 +1,20 @@
+<section class="panel">
+  <ng-container *ngIf="mock$ | async as mock">
+    <ng-container *ngFor="let opt of mock">
+      <button (click)="handleOnClick(opt.seasonNumber)" class="panel__btn">
+        <p class="panel__text">
+          Sezon:
+          <span class="panel__text panel__text--bold">{{
+            opt.seasonNumber
+          }}</span>
+        </p>
+        <p class="panel__text">
+          Odcinków:
+          <span class="panel__text panel__text--bold">{{
+            opt.episodesCount
+          }}</span>
+        </p>
+      </button>
+    </ng-container>
+  </ng-container>
+</section>

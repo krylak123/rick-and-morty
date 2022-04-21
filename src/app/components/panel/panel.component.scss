@@ -1,0 +1,67 @@
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  &__btn {
+    display: block;
+    padding: 2rem 1rem;
+    width: 150px;
+    outline-style: none;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #5682ad98;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px 0 #000;
+    cursor: pointer;
+    transition: 0.2s 0.2s;
+    animation: scale 0.5s 0.2s 1 backwards;
+
+    &:hover {
+      transition: 0.2s;
+      transform: scale(0.9);
+      box-shadow: 0 0 10px 0 #000;
+    }
+
+    &:nth-child(1) {
+      animation-delay: 0.7s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.7s;
+    }
+  }
+
+  &__text {
+    position: relative;
+    font-size: 2rem;
+    letter-spacing: 1px;
+
+    &--bold {
+      letter-spacing: 0px;
+      display: block;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 1px 2px 10px #000;
+    }
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
