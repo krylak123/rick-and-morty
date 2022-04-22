@@ -4,7 +4,7 @@ import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
   {
-    path: ':seasonNumber',
+    path: 'season/:seasonNumber',
     component: DetailsComponent,
   },
   {

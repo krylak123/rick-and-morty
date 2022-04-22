@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { Router } from '@angular/router';
+import { RickandmortyService } from 'src/app/services/rickandmorty.service';
 
 @Component({
   selector: 'app-panel',
@@ -7,19 +8,15 @@ import { of } from 'rxjs';
   styleUrls: ['./panel.component.scss'],
 })
 export class PanelComponent implements OnInit {
-  public mock$ = of([
-    { seasonNumber: 1, episodesCount: 11 },
-    { seasonNumber: 2, episodesCount: 10 },
-    { seasonNumber: 3, episodesCount: 10 },
-    { seasonNumber: 4, episodesCount: 10 },
-    { seasonNumber: 5, episodesCount: 10 },
-  ]);
+  public seasons$ = this.rickAndMortyService.seasons$;
 
-  constructor() {}
+  constructor(private rickAndMortyService: RickandmortyService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.rickAndMortyService.getSeasons();
+  }
 
   public handleOnClick(season: number) {
-    console.log(season);
+    this.rickAndMortyService.getEpisodesOfSeason(season);
   }
 }

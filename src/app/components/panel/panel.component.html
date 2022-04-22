@@ -1,7 +1,11 @@
 <section class="panel">
-  <ng-container *ngIf="mock$ | async as mock">
-    <ng-container *ngFor="let opt of mock">
-      <button (click)="handleOnClick(opt.seasonNumber)" class="panel__btn">
+  <ng-container *ngIf="seasons$ | async as seasons">
+    <ng-container *ngFor="let opt of seasons">
+      <button
+        [routerLink]="['season', opt.seasonNumber]"
+        (click)="handleOnClick(opt.seasonNumber)"
+        class="panel__btn"
+      >
         <p class="panel__text">
           Sezon:
           <span class="panel__text panel__text--bold">{{
