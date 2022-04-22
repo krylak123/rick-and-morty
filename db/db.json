@@ -1,0 +1,24 @@
+{
+  "listOfEpisodesInSeason": [
+    {
+      "seasonNumber": 1,
+      "episodesCount": 11
+    },
+    {
+      "seasonNumber": 2,
+      "episodesCount": 10
+    },
+    {
+      "seasonNumber": 3,
+      "episodesCount": 10
+    },
+    {
+      "seasonNumber": 4,
+      "episodesCount": 10
+    },
+    {
+      "seasonNumber": 5,
+      "episodesCount": 10
+    }
+  ]
+}
