@@ -21,16 +21,19 @@ interface EpisodeCharacters {
   providedIn: 'root',
 })
 export class RickandmortyApiService {
-  private readonly API_URL: string = '';
+  private readonly API_URL: string = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
   getSeasons() {
-    return this.http.get<ApiSeasonsResponse[]>(`${this.API_URL}`);
+    return this.http.get<ApiSeasonsResponse[]>(
+      `${this.API_URL}listOfEpisodesInSeason`
+    );
   }
 
   getEpisodesOfSeason(seasonNumber: number) {
-    console.log(seasonNumber);
-    return this.http.get<ApiEpisodeResponse[]>(`${this.API_URL}`);
+    return this.http.get<ApiEpisodeResponse[]>(
+      `${this.API_URL}seasons?season=${seasonNumber}`
+    );
   }
 }

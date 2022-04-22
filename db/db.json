@@ -20,5 +20,43 @@
       "seasonNumber": 5,
       "episodesCount": 10
     }
+  ],
+
+  "seasons": [
+    {
+      "season": 1,
+      "name": "Pilot",
+      "air_date": "December 2, 2013",
+      "episode_characters": [
+        {
+          "name": "Rick Sanchez",
+          "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+        },
+        {
+          "name": "Morty Smith",
+          "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+        },
+        {
+          "name": "Bepisian",
+          "image": "https://rickandmortyapi.com/api/character/avatar/35.jpeg"
+        },
+        {
+          "name": "Beth Smith",
+          "image": "https://rickandmortyapi.com/api/character/avatar/38.jpeg"
+        },
+        {
+          "name": "Canklanker Thom",
+          "image": "https://rickandmortyapi.com/api/character/avatar/62.jpeg"
+        },
+        {
+          "name": "Davin",
+          "image": "https://rickandmortyapi.com/api/character/avatar/92.jpeg"
+        },
+        {
+          "name": "Frank Palicky",
+          "image": "https://rickandmortyapi.com/api/character/avatar/127.jpeg"
+        }
+      ]
+    }
   ]
 }

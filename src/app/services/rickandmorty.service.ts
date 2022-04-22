@@ -30,7 +30,7 @@ export class RickandmortyService {
       .pipe(catchError((err: HttpErrorResponse) => of(err)))
       .subscribe((res) => {
         if (res instanceof HttpErrorResponse) {
-          console.log(res);
+          console.error(res);
         } else this.seasons.next(res);
       });
   }
@@ -41,7 +41,7 @@ export class RickandmortyService {
       .pipe(catchError((err: HttpErrorResponse) => of(err)))
       .subscribe((res) => {
         if (res instanceof HttpErrorResponse) {
-          console.log(res);
+          console.error(res);
         } else this.episodesOfSeasons.next(res);
       });
   }
