@@ -15,8 +15,4 @@ export class PanelComponent implements OnInit {
   ngOnInit(): void {
     this.rickAndMortyService.getSeasons();
   }
-
-  public handleOnClick(season: number) {
-    this.rickAndMortyService.getEpisodesOfSeason(season);
-  }
 }
