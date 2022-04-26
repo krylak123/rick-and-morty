@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { EpisodeCharacters } from 'src/app/services/rickandmorty-api.service';
 import { RickandmortyService } from 'src/app/services/rickandmorty.service';
 
 @Component({
@@ -16,7 +18,8 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private rickAndMortyService: RickandmortyService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private modalService: ModalService
   ) {}
 
   ngOnInit(): void {
@@ -30,5 +33,9 @@ export class DetailsComponent implements OnInit {
         this.router.navigate(['']);
       }
     });
+  }
+
+  public onClick(data: EpisodeCharacters[]) {
+    this.modalService.modalOpen(data);
   }
 }

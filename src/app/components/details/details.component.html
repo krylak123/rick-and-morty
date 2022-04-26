@@ -21,7 +21,10 @@
                 Data emisji:
                 <span class="item__text--bold">{{ item.air_date }}</span>
               </p>
-              <button class="item__count">
+              <button
+                (click)="onClick(item.episode_characters)"
+                class="item__count"
+              >
                 Postaci:
                 <span class="item__text--bold">{{
                   item.episode_characters.length

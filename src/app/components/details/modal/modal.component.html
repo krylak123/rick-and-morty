@@ -1,0 +1,6 @@
+<dialog [open]="isOpen$ | async" class="modal">
+  <ng-container *ngIf="data$ | async as data">
+    <p>{{ data.length }}</p>
+    <button (click)="onClick()" class="modal__btn modal__btn--close">X</button>
+  </ng-container>
+</dialog>
