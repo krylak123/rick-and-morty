@@ -1,6 +1,18 @@
-<dialog [open]="isOpen$ | async" class="modal">
+<dialog [open]="isOpen$ | async" class="modal__container">
   <ng-container *ngIf="data$ | async as data">
-    <p>{{ data.length }}</p>
-    <button (click)="onClick()" class="modal__btn modal__btn--close">X</button>
+    <div class="modal">
+      <div class="modal__heading">
+        <p class="modal__title">Liczba postaci: {{ data.length }}</p>
+        <button (click)="onClick()" class="modal__btn">X</button>
+      </div>
+      <div class="modal__content">
+        <article *ngFor="let item of data" class="card">
+          <div class="card__img-container">
+            <img [src]="item.image" alt="" class="card__img" />
+          </div>
+          <p class="card__name">{{ item.name }}</p>
+        </article>
+      </div>
+    </div>
   </ng-container>
 </dialog>
