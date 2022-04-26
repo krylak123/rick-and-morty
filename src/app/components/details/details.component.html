@@ -1,3 +1,31 @@
-<ng-container *ngIf="episodesOfSeasons$ | async as episodesOfSeasons">
-  {{ episodesOfSeasons.name }}
+<ng-container *ngIf="!(isLoading$ | async); else loader">
+  <ng-container
+    *ngIf="episodesOfSeasons$ | async as episodesOfSeasons; else noresults"
+  >
+    <section class="details">
+      <div class="details__heading">
+        <p class="details__title">Sezon {{ episodesOfSeasons.season }}</p>
+        <p class="details__subtitle">
+          Ilość odcinków w sezonie: {{ episodesOfSeasons.episodes.length }}
+        </p>
+      </div>
+      <ul class="details__list">
+        <ng-container *ngFor="let item of episodesOfSeasons.episodes">
+          <li class="details__item">{{ item.name }}</li>
+        </ng-container>
+      </ul>
+    </section>
+  </ng-container>
 </ng-container>
+
+<ng-template #noresults>
+  <section class="details details--error">
+    <p class="details__title">Brak wyników :(</p>
+  </section>
+</ng-template>
+
+<ng-template #loader>
+  <section class="details details--error">
+    <div class="loader"></div>
+  </section>
+</ng-template>

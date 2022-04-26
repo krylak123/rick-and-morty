@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, of, ReplaySubject, tap } from 'rxjs';
+import { LoaderService } from './loader.service';
 import {
   ApiEpisodeResponse,
   ApiSeasonsNestedResponse,
@@ -14,7 +15,10 @@ export class RickandmortyService {
   private seasons = new ReplaySubject<ApiSeasonsNestedResponse[]>(1);
   private episodesOfSeasons = new ReplaySubject<ApiEpisodeResponse>(1);
 
-  constructor(private rickAndMortyApiService: RickandmortyApiService) {}
+  constructor(
+    private rickAndMortyApiService: RickandmortyApiService,
+    private loaderService: LoaderService
+  ) {}
 
   public get seasons$() {
     return this.seasons.asObservable();
@@ -46,6 +50,7 @@ export class RickandmortyService {
         catchError((err: HttpErrorResponse) => of(err))
       )
       .subscribe((res) => {
+        this.loaderService.loaderOff();
         if (res instanceof HttpErrorResponse) {
           console.error(res);
         } else this.episodesOfSeasons.next(res);
