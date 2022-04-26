@@ -11,7 +11,24 @@
       </div>
       <ul class="details__list">
         <ng-container *ngFor="let item of episodesOfSeasons.episodes">
-          <li class="details__item">{{ item.name }}</li>
+          <li class="details__item item">
+            <div class="item__heading">
+              <p class="item__title">
+                Tytuł:
+                <span class="item__text--bold">{{ item.name }}</span>
+              </p>
+              <p class="item__date">
+                Data emisji:
+                <span class="item__text--bold">{{ item.air_date }}</span>
+              </p>
+              <button class="item__count">
+                Postaci:
+                <span class="item__text--bold">{{
+                  item.episode_characters.length
+                }}</span>
+              </button>
+            </div>
+          </li>
         </ng-container>
       </ul>
     </section>
