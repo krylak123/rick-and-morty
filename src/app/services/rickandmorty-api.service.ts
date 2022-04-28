@@ -41,7 +41,6 @@ export class RickandmortyApiService {
   getEpisodesOfSeason(seasonNumber: number) {
     return this.http.get<ApiEpisodeResponse[]>(
       `${this.API_URL}seasons/${seasonNumber}`
-      // `http://localhost:3000/seasons?season=1`
     );
   }
 }
